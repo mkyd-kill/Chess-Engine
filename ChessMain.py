@@ -12,8 +12,8 @@ DIMENSION = 8
 SQ_SIZE = HEIGHT // DIMENSION
 MAX_FPS = 15 # for animation purposes
 IMAGES = {} # an empty image dictionary
-WHITE = (255, 255, 255)
-SALMON = (255,160,122)
+WHITE = p.Color("white")
+SALMON = p.Color("salmon")
 
 # function in pygame that loads the elements images onto the board once
 def loadImages():
@@ -66,7 +66,6 @@ def main():
             elif e.type == p.KEYDOWN:
                 if e.key == p.K_z: # the undo key
                     gs.undoMove()
-                    print('move_id:' + str(move.moveID) + '\nHas been Undone')
                     moveMade = True
                         
 

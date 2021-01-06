@@ -54,12 +54,13 @@ def main():
                     move = Move(playerClicks[0], playerClicks[1], gs.board)
                     print(str(move.getChessNotation()) + ' id: ' + str(move.moveID))
 
-                    if move in validMoves:
-                        gs.makeMove(move)
-                        moveMade = True
-                        sqSelected = ()
-                        playerClicks = [] # resets user clicks
-                    else:
+                    for i in range(len(validMoves)):
+                        if move == validMoves[i]:
+                            gs.makeMove(validMoves[i])
+                            moveMade = True
+                            sqSelected = ()
+                            playerClicks = [] # resets user clicks
+                    if not moveMade:
                         playerClicks = [sqSelected]
                         
             # keyboard handlers

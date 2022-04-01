@@ -98,7 +98,3 @@ def drawPieces(screen, board):
             piece = board[r][c]
             if piece != "--": # not empty
                 screen.blit(IMAGES[piece], p.Rect(c*SQ_SIZE, r*SQ_SIZE, SQ_SIZE, SQ_SIZE))
-
-
-if __name__ == "__main__":
-    main()

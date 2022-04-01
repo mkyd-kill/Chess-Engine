@@ -5,7 +5,7 @@
         storing the game logs.
 
     Board representation is in 2D
-"""
+""" 
 
 class GameState():
     def __init__(self):
@@ -22,6 +22,14 @@ class GameState():
             ['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']]
 
         # constructor dictionary
+        """
+            p: pawn
+            R: Rook
+            N: knight
+            B: bishop
+            K: king
+            Q: queen
+        """
         self.moveFunctions = {'p': self.getPawnMoves, 'R': self.getRookMoves, 'N': self.getKnightMoves,
                                 'B': self.getBishopMoves, 'K': self.getKingMoves, 'Q': self.getQueenMoves}
         
@@ -33,8 +41,14 @@ class GameState():
         self.staleMate = False
         self.enpassantPossible = () # possible capture enpassant coordinates
         self.currentCastlingRights = CastleRights(True, True, True, True)
-        self.castleRightsLog = [CastleRights(self.currentCastlingRights.wks, self.currentCastlingRights.wqs,
-                                            self.currentCastlingRights.bks, self.currentCastlingRights.bqs)]
+        self.castleRightsLog = [
+            CastleRights(
+                self.currentCastlingRights.wks,
+                self.currentCastlingRights.wqs,
+                self.currentCastlingRights.bks,
+                self.currentCastlingRights.bqs
+            )
+        ]
 
     # function that makes a move in response to the user mouse clicks
     def makeMove(self, move):
@@ -50,7 +64,7 @@ class GameState():
 
         # pawn promotion
         if move.isPawnPromotion:
-            self.board[move.endRow][move.endCol] = move.pieceMoved[0] + 'Q'
+            self.board[move.endRow][move.endCol] = move.pieceMoved[0] + 'Q' # not only Q promotion
 
         # enpassant move
         if move.isEnpassantMove:
@@ -197,7 +211,7 @@ class GameState():
     '''
     def getAllPossibleMoves(self):
         moves = []
-        for r in range(len(self.board)):
+        for r in range(len(self.board) - 1):
             for c in range(len(self.board[r])):
                 turn = self.board[r][c][0]
                 if (turn == 'w' and self.whiteToMove) or (turn == 'b' and not self.whiteToMove):

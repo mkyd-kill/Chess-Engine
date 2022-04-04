@@ -1,11 +1,11 @@
-"""
+'''
     Responsible for:
         storing the information of the current game,
         determining the legal moves of the current game, and 
         storing the game logs.
 
     Board representation is in 2D
-""" 
+'''
 
 class GameState():
     def __init__(self):
@@ -22,14 +22,6 @@ class GameState():
             ['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']]
 
         # constructor dictionary
-        """
-            p: pawn
-            R: Rook
-            N: knight
-            B: bishop
-            K: king
-            Q: queen
-        """
         self.moveFunctions = {'p': self.getPawnMoves, 'R': self.getRookMoves, 'N': self.getKnightMoves,
                                 'B': self.getBishopMoves, 'K': self.getKingMoves, 'Q': self.getQueenMoves}
         

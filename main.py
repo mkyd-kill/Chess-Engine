@@ -1,4 +1,4 @@
-from ChessMain import main
+from StartWindow import start
 
 if __name__ == '__main__':
-    main()
+    start()

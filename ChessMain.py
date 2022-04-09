@@ -6,7 +6,8 @@ import pygame as p
 from ChessEngine import GameState, Move
 
 p.init()
-p.display.set_caption('Chess Engine')
+p.font.init()
+
 WIDTH = HEIGHT = 512
 DIMENSION = 8
 SQ_SIZE = HEIGHT // DIMENSION
